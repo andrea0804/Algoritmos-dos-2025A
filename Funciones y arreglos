@@ -1,0 +1,74 @@
+1. Main.java 
+public class Main {
+	public static void main(String[] args) {
+	int [] enteros = {1,2,3,4,5,6,7,9,10};
+	int n = enteros.length + 1;
+	int sumaEsperada = (n * (enteros[0] + enteros[enteros.length - 1]))/2;
+	
+	int sumaActual = 0;
+	for (int num : enteros) {
+		sumaActual += num;
+	}
+		int numeroFaltante = sumaEsperada - sumaActual;
+		System.out.println("El numero que falta es: " + numeroFaltante);
+	}
+
+} 
+
+2. Fibonacci 
+import java.util.Scanner;
+
+public class Fibonacci {
+	public static void main(String[]args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingresa el numero de terminos la serie Fibonacci");
+		int n = scanner.nextInt();
+		
+	if (n<= 0) {
+		System.out.println("El numero de terminos degbe de ser mayor que 0");
+		return;
+		}
+	int[] fibonacci = new int[n];
+		fibonacci[0] = 1;
+		if (n>1) {
+			fibonacci[1] = 1;
+		}
+		
+	for (int i = 2; i < n; i++) {
+		fibonacci[i] = fibonacci [i-1] + fibonacci[i-2];
+		}
+	System.out.println("Los primeros " + n + " terminos de la serie de Fibonacci son:");
+	for (int i = 0; i < n; i++) {
+		System.out.print(fibonacci[i] + " ");
+		}
+	}
+
+}
+
+3. Meyor.java
+import java.util.Arrays;
+
+public class Mayor {
+	public static void main(String[] args) {
+		int[] arr = {1,2,3,2,8,4};
+		
+		int[] resultados = encontrarMayor(arr);
+		
+			System.out.println("Los dos numeros cuyo producto e4s el mayor son: " +resultados[0] + " y " + resultados[1] );
+			System.out.println("El producto maximo es: " + resultados[0] * resultados[1]);
+		}
+	 public static int[] encontrarMayor(int[] arr) {
+		 Arrays.sort(arr);
+		 
+	 int productoMaximo1 = arr[arr.length -1] * arr[arr.length - 2];
+	 int productoMaximo2 = arr[0] * arr[1];
+	 
+	 	if (productoMaximo1 > productoMaximo2) {
+	 		return new int[] {arr[arr.length - 1], arr[arr.length - 2]};
+ 		} else {
+ 			return new int[] {arr[0], arr[1]};
+ 		}
+	 
+	 }
+
+}
